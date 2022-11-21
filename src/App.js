@@ -53,7 +53,7 @@ const App = () => {
             </div>
           )}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full overflow-x-scroll ${
               activeMenu ? "md:ml-72" : "felx-2"
             }`}
           >
