@@ -54,7 +54,7 @@ const App = () => {
           )}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full overflow-x-scroll ${
-              activeMenu ? "md:ml-72" : "felx-2"
+              activeMenu ? "md:ml-72" : "flex-2"
             }`}
           >
             <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg w-full">

@@ -11,6 +11,12 @@ import { useStateContext } from "../contexts/ContextProvider";
 import heroPattern from "../data/welcome-bg.svg";
 
 const Ecommerce = () => {
+    const pageOptions = {pageSize:10}
+  const toolbarOptions = ['Search']
+  const searchOptinos =  {
+    ignoreCase: true,
+    operator: 'contains'
+  };
   return (
     <div className="mt-8">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">

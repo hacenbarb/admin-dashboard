@@ -1,9 +1,50 @@
-import React from 'react'
+import React from "react";
+import {
+  GridComponent,
+  ColumnsDirective,
+  ColumnDirective,
+  Edit,
+  Search,
+  Page,
+  Inject,
+  Sort,
+  Toolbar,
+  Selection,
+  Filter,
+} from "@syncfusion/ej2-react-grids";
+import { customersData, customersGrid } from "../data/dummy";
+import Header from "../components/Header";
 
 const Customers = () => {
-  return (
-    <div>Customers</div>
-  )
-}
+  const pageOptions = { pageSize: 10 };
+  const toolbarOptions = ["Delete"];
+  const editOptions = { allowEdition: true, allowDeleting: true };
 
-export default Customers
+  return (
+    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+      <Header title="Customers" category="page" />
+      <GridComponent
+        dataSource={customersData}
+        allowEditing
+        allowPaging
+        allowSorting
+        allowMultiSorting
+        toolbar={toolbarOptions}
+        editSettings={editOptions}
+        pageSettings={pageOptions}
+        width="auto"
+      >
+        <ColumnsDirective>
+          {customersGrid.map((item, index) => (
+            <ColumnDirective key={index} {...item} />
+          ))}
+        </ColumnsDirective>
+        <Inject
+          services={[Search, Page, Edit, Sort, Toolbar, Selection, Filter]}
+        />
+      </GridComponent>
+    </div>
+  );
+};
+
+export default Customers;
