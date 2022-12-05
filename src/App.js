@@ -27,40 +27,48 @@ import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode  } = useStateContext();
   return (
-    <div>
+    <div className= {currentMode === "Dark" ? 'dark' : ''}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
-          <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
-            <TooltipComponent content="Settings" position="Top">
-              <button
-                type="button"
-                className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
-                style={{ background: "blue", borderRadius: "50%" }}
-              >
-                <FiSettings />
-              </button>
-            </TooltipComponent>
-          </div>
+          {!themeSettings && (
+            <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
+              <TooltipComponent content="Settings" position="Top">
+                <button
+                  type="button"
+                  className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+                  style={{ backgroundColor: currentColor, borderRadius: "50%" }}
+                  onClick={() => {
+                    setThemeSettings(true);
+                  }}
+                >
+                  <FiSettings />
+                </button>
+              </TooltipComponent>
+            </div>
+          )}
           {activeMenu ? (
             <div className="sidebar w-72 fixed  dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar /> w-0
+              <Sidebar />
             </div>
           )}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full overflow-x-scroll ${
-              activeMenu ? "md:ml-72" : "flex-2"
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full overflow-x-scroll ${
+              activeMenu ? 
+              "md:ml-72 " : 
+              "flex-2"
             }`}
           >
-            <div className="navbar fixed md:static bg-main-bg dark:bg-main-dark-bg w-full">
+            <div className="navbar fixed md:static bg-main-bg dark:bg-secondary-dark-bg w-full">
               <Navbar />
             </div>
             <div>
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />

@@ -6,19 +6,22 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 const Sidebar = () => {
-  const {activeMenu, setActiveMenu, screenSize} = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
-      setActiveMenu(false)
+      setActiveMenu(false);
     }
-  }
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2'
-  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 text-gray-700 dark:text-gray-200 hover:text-black hover:bg-light-gray'
+  };
+  const activeLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 text-white "
+  const normalLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
   return (
     <div className="ml-3 h-screen pb-10 overflow-auto md:overflow-hidden md:hover:overflow-auto">
       {true && (
         <>
-          <div className="flex justify-between items-center mt-2">
+          <div className="flex justify-between items-center p-4 sticky top-0 left-0 bg-white dark:bg-secondary-dark-bg">
             <Link
               to="/"
               onClick={handleCloseSideBar}
@@ -46,7 +49,12 @@ const Sidebar = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
-                    className={({isActive}) => isActive ? activeLink : normalLink}
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                   >
                     {link.icon}
                     <span className="capitalize">{link.name}</span>
