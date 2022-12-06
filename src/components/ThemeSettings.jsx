@@ -6,7 +6,7 @@ import { themeColors } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const ThemeSettings = () => {
-  const { setColor, setMode, currentColor, currentMode, setThemeSettings } =
+  const { setColor, setMode, currentColor, currentMode, toggleThemeSettings } =
     useStateContext();
   return (
     <div className="bg-half-transparent w-screen fixed top-0 right-0 z-10 ">
@@ -16,9 +16,7 @@ const ThemeSettings = () => {
           <p className="font-semibold text-xl uppercase">Settings</p>
           <button
             type="button"
-            onClick={() => {
-              setThemeSettings(false);
-            }}
+            onClick={toggleThemeSettings}
             style={{ color: "rgb(153,171,180)", borderRadius: "50%" }}
             className="text-2xl p-3 hover:drop-shadow-md hover:bg-light-gray"
           >

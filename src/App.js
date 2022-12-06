@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Sidebar, ThemeSettings } from "./components";
 import {
   Ecommerce,
   Orders,
@@ -27,9 +27,15 @@ import { useStateContext } from "./contexts/ContextProvider";
 import "./App.css";
 
 const App = () => {
-  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode  } = useStateContext();
+  const {
+    activeMenu,
+    themeSettings,
+    toggleThemeSettings,
+    currentColor,
+    currentMode,
+  } = useStateContext();
   return (
-    <div className= {currentMode === "Dark" ? 'dark' : ''}>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           {!themeSettings && (
@@ -39,9 +45,7 @@ const App = () => {
                   type="button"
                   className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
                   style={{ backgroundColor: currentColor, borderRadius: "50%" }}
-                  onClick={() => {
-                    setThemeSettings(true);
-                  }}
+                  onClick={toggleThemeSettings}
                 >
                   <FiSettings />
                 </button>
@@ -59,9 +63,7 @@ const App = () => {
           )}
           <div
             className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full overflow-x-scroll ${
-              activeMenu ? 
-              "md:ml-72 " : 
-              "flex-2"
+              activeMenu ? "md:ml-72 " : "flex-2"
             }`}
           >
             <div className="navbar fixed md:static bg-main-bg dark:bg-secondary-dark-bg w-full">

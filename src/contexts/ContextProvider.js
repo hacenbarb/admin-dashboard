@@ -24,29 +24,41 @@ export const ContextProvider = ({ children }) => {
     setCurrentMode(e.target.value);
     localStorage.setItem("themeMode", e.target.value);
     setThemeSettings(false);
-  };  
+  };
   const setColor = (color) => {
     setCurrentColor(color);
     localStorage.setItem("colorMode", color);
     setThemeSettings(false);
   };
+  const toggleThemeSettings = () => {
+    setThemeSettings((prev) => !prev);
+  };
+  const toggleActiveMenu = () => {
+    setActiveMenu((prev) => !prev);
+  };
+  const activeActiveMenu = () => {
+    setActiveMenu(true)
+  };
+  const disableActiveMenu = () => {
+    setActiveMenu(false)
+  };
   return (
     <StateContext.Provider
       value={{
-        activeMenu: activeMenu,
-        setActiveMenu,
+        activeMenu,
         isClicked,
-        setIsClicked,
         handleClick,
         screenSize,
         setScreenSize,
         currentColor,
         currentMode,
-        setCurrentColor,
         setMode,
         setColor,
         themeSettings,
-        setThemeSettings,
+        toggleThemeSettings,
+        toggleActiveMenu,
+        activeActiveMenu,
+        disableActiveMenu
       }}
     >
       {children}
