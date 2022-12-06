@@ -15,11 +15,12 @@ import {
 } from "@syncfusion/ej2-react-grids";
 import { ordersData, contextMenuItems, ordersGrid } from "../data/dummy";
 import Header from "../components/Header";
+import { useStateContext } from "../contexts/ContextProvider";
 const Orders = () => {
-  const pageSettings = {pageSize:6}
+  const pageSettings = { pageSize: 6 };
   const editing = { allowDeleting: false, allowEditing: false };
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+    <div>
       <Header title="Orders" category="page" />
       <GridComponent
         id="gridcomp"

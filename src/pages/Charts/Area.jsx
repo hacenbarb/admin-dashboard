@@ -19,7 +19,7 @@ import { Header } from "../../components";
 const Area = () => {
   const { currentMode } = useStateContext();
   return (
-    <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+    <div>
       <Header category="Area" title="Inflation Rate in %" />
       <div className="w-full">
       <ChartComponent

@@ -21,7 +21,7 @@ const Customers = () => {
   const editOptions = { allowEdition: true, allowDeleting: true };
 
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+    <div>
       <Header title="Customers" category="page" />
       <GridComponent
         dataSource={customersData}

@@ -15,6 +15,7 @@ import {
 import { DatePickedComponent } from "@syncfusion/ej2-react-calendars";
 import { scheduleData } from "../data/dummy";
 import { Header } from "../components";
+import { useStateContext } from "../contexts/ContextProvider";
 const Calendar = () => {
   const InjectServices = [
     Day,
@@ -26,11 +27,11 @@ const Calendar = () => {
     DragAndDrop,
   ];
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
+    <div>
       <Header category="App" title="Calendar" />
       <ScheduleComponent
         height="450px"
-        eventSettings= {{dataSource: scheduleData}}
+        eventSettings={{ dataSource: scheduleData }}
         selectedDate={new Date(2021, 0, 10)}
       >
         <Inject services={InjectServices} />
