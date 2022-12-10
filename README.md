@@ -17,11 +17,11 @@ to live the full experience check the [preview](https://hacenbarb-admin-dashboar
   
   ✅ Easy to use
 
-  ✅ beutifull interface
+  ✅ beautiful interface
 
-  ✅ diffrent Theme Modes for you preferences
+  ✅ Many Theme Colors
 
-  ✅ Dark Mode for your Eyes health
+  ✅ Dark Mode / Light Mode
 
 * Components
 
