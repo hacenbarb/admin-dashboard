@@ -52,9 +52,7 @@ const UserProfile = () => {
               <p className="text-lg font-semibold dark:text-white">{card.title}</p>
               <p className="text-md text-gray-500 dark:text-gray-200 lowercase">{card.desc}</p>
             </div>
-            <hr className="m-2" />
           </div>
-
         ))}
       </div>
     </>
