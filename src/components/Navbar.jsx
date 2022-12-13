@@ -98,7 +98,7 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14"></MdKeyboardArrowDown>
           </div>
         </TooltipComponent>
-        {(isClicked.card ||
+        {(isClicked.cart ||
           isClicked.chat ||
           isClicked.notification ||
           isClicked.userProfile) && (
