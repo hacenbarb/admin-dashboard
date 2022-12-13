@@ -21,13 +21,13 @@ const Chat = () => {
         <button
           type="button"
           onClick={closeUserProfile}
-          className="text-2xl rounded-full p-3 hover:bg-light-gray block text-gray-500"
+          className="text-2xl rounded-full p-3 hover:bg-light-gray hover:bg-half-transparent block text-gray-500"
         >
           <MdOutlineCancel />
         </button>
       </div>
       {chatData.map((chat) => (
-        <div className="flex items-center p-1 hover:bg-light-gray cursor-pointer border-b-1 border-color w-full">
+        <div className="flex items-center p-2 hover:bg-light-gray hover:bg-half-transparent cursor-pointer border-b-1 border-color w-full">
           <img
             src={chat.image}
             alt="chat image"

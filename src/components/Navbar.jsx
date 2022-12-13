@@ -17,11 +17,11 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
         type="button"
         onClick={customFunc}
         style={{ color }}
-        className="relative text-xl rounded-full p-3 hover:bg-light-gray "
+        className="relative text-xl rounded-full p-3 hover:bg-light-gray hover:bg-half-transparent"
       >
         <span
           style={{ background: dotColor }}
-          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-"
         ></span>
         {icon}
       </button>
@@ -54,7 +54,7 @@ const Navbar = () => {
     }
   }, [screenSize]);
   return (
-    <div className="flex justify-between p-2 md:mx-6 relative">
+    <div className="flex justify-between p-2 md:mx-6 relative ">
       <NavButton
         title="Menu"
         customFunc={toggleActiveMenu}
@@ -84,7 +84,7 @@ const Navbar = () => {
         />
         <TooltipComponent content="profile" position="BottomCenter">
           <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray hover:bg-half-transparent rounded-lg"
             onClick={() => handleClick("userProfile")}
           >
             <img
@@ -102,7 +102,7 @@ const Navbar = () => {
           isClicked.chat ||
           isClicked.notification ||
           isClicked.userProfile) && (
-          <div className="nav-item absolute right-1 top-16 bg-white dark: bg-primary-dark-bg dark:text-gray-200 rounded-xl p-6 w-96 drop-shadow-lg">
+          <div className="nav-item absolute right-1 top-16 bg-white dark:bg-main-dark-bg dark:text-gray-200 rounded-xl p-6 w-96 drop-shadow-lg">
             {isClicked.cart && <Cart />}
             {isClicked.chat && <Chat />}
             {isClicked.notification && <Notification />}

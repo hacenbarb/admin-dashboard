@@ -1,10 +1,11 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
+import { Button } from "../components";
 import { user, userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const UserProfile = () => {
-  const { handleClick } = useStateContext();
+  const { handleClick, currentColor } = useStateContext();
   const initialState = {
     chat: false,
     cart: false,
@@ -21,7 +22,7 @@ const UserProfile = () => {
         <button
           type="button"
           onClick={closeUserProfile}
-          className="text-2xl rounded-full p-3 hover:bg-light-gray block text-gray-500"
+          className="text-2xl rounded-full p-3 hover:bg-light-gray hover:bg-half-transparent block text-gray-500"
         >
           <MdOutlineCancel />
         </button>
@@ -44,7 +45,7 @@ const UserProfile = () => {
       </div>
       <div>
         {userProfileData.map((card) => (
-          <div className="flex items-center p-4 hover:bg-light-gray cursor-pointer border-b-1 border-color">
+          <div className="flex items-center p-4 hover:bg-light-gray  hover:bg-half-transparent cursor-pointer border-b-1 border-color">
             <div className="p-4 rounded-md text-xl" style={{color: card.iconColor,backgroundColor: card.iconBg }}>
             {card.icon}
             </div>
@@ -55,6 +56,14 @@ const UserProfile = () => {
           </div>
         ))}
       </div>
+      <Button
+        color="white"
+        bgColor={currentColor}
+        text="Logout"
+        borderRadius="10px"
+        size="sm"
+        className="w-full mt-4 mb-0"
+      />
     </>
   );
 };
