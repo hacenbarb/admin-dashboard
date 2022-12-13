@@ -98,12 +98,12 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14"></MdKeyboardArrowDown>
           </div>
         </TooltipComponent>
-        {(isClicked.cart ||
+        {isClicked.cart && <Cart />}
+        {(
           isClicked.chat ||
           isClicked.notification ||
           isClicked.userProfile) && (
           <div className="nav-item absolute right-1 top-16 bg-white dark:bg-main-dark-bg dark:text-gray-200 rounded-xl p-6 w-96 drop-shadow-lg">
-            {isClicked.cart && <Cart />}
             {isClicked.chat && <Chat />}
             {isClicked.notification && <Notification />}
             {isClicked.userProfile && <UserProfile />}
