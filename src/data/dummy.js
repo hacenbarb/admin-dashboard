@@ -876,7 +876,13 @@ export const themeColors = [
     name: "orange-theme",
   },
 ];
-
+export const user = {
+  id: 1,
+  userName: "Nate",
+  role:"Administrator",
+  email:"nate@email.com",
+  avatar: avatar3
+}
 export const userProfileData = [
   {
     icon: <BsCurrencyDollar />,
