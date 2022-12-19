@@ -9,18 +9,6 @@ import {
   BarSeries,
 } from "@syncfusion/ej2-react-charts";
 
-// import {
-//   ChartComponent,
-//   SeriesCollectionDirective,
-//   SeriesDirective,
-//   Inject,
-//   Legend,
-//   Category,
-//   Tooltip,
-//   DataLabel,
-//   BarSeries,
-// } from "@syncfusion/ej2-react-charts";
-
 import {
   barCustomSeries,
   barPrimaryXAxis,
@@ -28,7 +16,6 @@ import {
 } from "../../data/dummy";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { Header } from "../../components";
-import { Category } from "@syncfusion/ej2/charts";
 const Bar = () => {
   const { currentMode } = useStateContext();
   return (
